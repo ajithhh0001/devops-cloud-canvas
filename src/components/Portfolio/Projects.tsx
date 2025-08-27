@@ -19,8 +19,8 @@ const Projects = () => {
         "Event management dashboard",
         "Responsive design"
       ],
-      githubUrl: "https://github.com/ajithhh000",
-      liveUrl: "#",
+      githubUrl: "https://github.com/AKSHAY-PV-8/P1-GAME-PLAN",
+      liveUrl: "https://github.com/AKSHAY-PV-8/P1-GAME-PLAN",
       image: "/api/placeholder/600/400",
       gradient: "bg-gradient-primary"
     },
@@ -39,7 +39,7 @@ const Projects = () => {
         "Ingredient substitution suggestions",
         "Mobile-friendly interface"
       ],
-      githubUrl: "https://github.com/ajithhh000",
+      githubUrl: "#",
       liveUrl: "#",
       image: "/api/placeholder/600/400",
       gradient: "bg-gradient-secondary"

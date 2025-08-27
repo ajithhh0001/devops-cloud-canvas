@@ -73,36 +73,46 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <Card 
               key={index} 
-              className="tech-card animate-scale-in group"
+              className="tech-card animate-scale-in group relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="mb-6">
-                <div className={`inline-flex p-3 rounded-lg ${category.color} mb-4 group-hover:scale-110 transition-transform duration-200`}>
-                  {category.icon}
-                </div>
-                <h3 className="text-xl font-semibold">{category.title}</h3>
-              </div>
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
               
-              <div className="space-y-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <div
-                    key={skillIndex}
-                    className="skill-badge animate-fade-in"
-                    style={{ animationDelay: `${(index * 0.1) + (skillIndex * 0.05)}s` }}
-                  >
-                    {skill}
+              <div className="relative">
+                <div className="mb-6">
+                  <div className={`inline-flex p-3 rounded-lg ${category.color} mb-4 group-hover:scale-110 transition-transform duration-300 shadow-glass`}>
+                    {category.icon}
                   </div>
-                ))}
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">{category.title}</h3>
+                </div>
+                
+                <div className="space-y-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skillIndex}
+                      className="skill-badge animate-fade-in group-hover:shadow-md group-hover:scale-105 transition-all duration-300"
+                      style={{ animationDelay: `${(index * 0.1) + (skillIndex * 0.05)}s`, transitionDelay: `${skillIndex * 50}ms` }}
+                    >
+                      {skill}
+                    </div>
+                  ))}
+                </div>
               </div>
             </Card>
           ))}
         </div>
 
-        {/* Learning Progress Section */}
+        {/* Learning Progress Section with enhanced design */}
         <div className="mt-16">
-          <Card className="project-card bg-gradient-secondary text-white">
-            <div className="text-center">
-              <Wrench className="h-12 w-12 mx-auto mb-4 text-white/90" />
+          <Card className="project-card bg-gradient-secondary text-white relative overflow-hidden group">
+            {/* Animated background mesh */}
+            <div className="absolute inset-0 bg-gradient-mesh opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+            
+            <div className="relative text-center">
+              <div className="glass-card inline-flex p-4 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Wrench className="h-12 w-12 text-white/90 animate-bounce-gentle" />
+              </div>
               <h3 className="text-2xl font-semibold mb-4">Currently Learning</h3>
               <p className="text-white/90 mb-6 max-w-2xl mx-auto">
                 Actively expanding my knowledge in advanced DevOps practices and cloud technologies
@@ -118,7 +128,8 @@ const Skills = () => {
                 ].map((skill, index) => (
                   <span
                     key={index}
-                    className="bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium border border-white/30 hover:bg-white/30 transition-colors duration-200"
+                    className="glass-card text-white px-4 py-2 rounded-full text-sm font-medium hover:scale-105 hover:shadow-floating transition-all duration-300"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {skill}
                   </span>

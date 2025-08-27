@@ -24,8 +24,6 @@ const Contact = () => {
     email: "",
     message: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const contactInfo = [
     {
       icon: <Mail className="h-5 w-5" />,
@@ -73,21 +71,6 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    toast({
-      title: "Message Sent Successfully! ✨",
-      description: "Thank you for your message. I'll get back to you within 24 hours.",
-    });
-
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
-  };
 
   return (
     <section id="contact" className="section-padding">
@@ -155,10 +138,13 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Response Time */}
-            <Card className="project-card bg-gradient-secondary text-white">
-              <div className="flex items-center gap-3">
-                <Clock className="h-6 w-6 text-white/90" />
+            {/* Response Time with enhanced design */}
+            <Card className="project-card bg-gradient-secondary text-white relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-mesh opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="relative flex items-center gap-3">
+                <div className="p-2 glass-card group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="h-6 w-6 text-white/90" />
+                </div>
                 <div>
                   <h4 className="font-semibold">Quick Response Time</h4>
                   <p className="text-white/90 text-sm">I typically respond within 24 hours</p>
@@ -180,7 +166,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action="https://formsubmit.co/ajithhh000@gmail.com" method="POST" className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name *</Label>
@@ -223,23 +209,18 @@ const Contact = () => {
                   />
                 </div>
 
+                {/* Hidden formsubmit fields */}
+                <input type="hidden" name="_next" value="https://ajithhh000.github.io/portfolio" />
+                <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission" />
+                <input type="hidden" name="_captcha" value="false" />
+
                 <Button 
                   type="submit" 
                   className="w-full" 
                   size="lg"
-                  disabled={isSubmitting}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="h-4 w-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
+                  <Send className="h-4 w-4 mr-2" />
+                  Send Message
                 </Button>
 
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">

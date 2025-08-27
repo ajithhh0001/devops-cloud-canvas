@@ -26,6 +26,14 @@ const Hero = () => {
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float"></div>
         <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        
+        {/* Mesh gradient overlay */}
+        <div className="absolute inset-0 mesh-gradient opacity-20"></div>
+        
+        {/* Floating particles */}
+        <div className="absolute top-1/3 left-1/5 w-2 h-2 bg-white/30 rounded-full animate-pulse-slow"></div>
+        <div className="absolute top-2/3 right-1/5 w-3 h-3 bg-white/40 rounded-full animate-bounce-gentle" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-2/3 w-1 h-1 bg-white/50 rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative z-10 container-width section-padding">
@@ -110,15 +118,18 @@ const Hero = () => {
                   />
                 </div>
                 
-                {/* Floating tech icons */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-float">
+                {/* Floating tech icons with enhanced glass effect */}
+                <div className="absolute -top-4 -right-4 w-14 h-14 glass-card flex items-center justify-center animate-float shadow-floating">
                   <span className="text-white font-bold text-sm">AWS</span>
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
+                <div className="absolute -bottom-4 -left-4 w-14 h-14 glass-card flex items-center justify-center animate-float shadow-floating" style={{ animationDelay: '1s' }}>
                   <span className="text-white font-bold text-xs">Docker</span>
                 </div>
-                <div className="absolute top-1/2 -left-8 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '2s' }}>
+                <div className="absolute top-1/2 -left-8 w-14 h-14 glass-card flex items-center justify-center animate-float shadow-floating" style={{ animationDelay: '2s' }}>
                   <span className="text-white font-bold text-xs">K8s</span>
+                </div>
+                <div className="absolute top-1/4 -right-8 w-12 h-12 glass-card flex items-center justify-center animate-float shadow-floating" style={{ animationDelay: '3s' }}>
+                  <span className="text-white font-bold text-xs">CI/CD</span>
                 </div>
               </div>
             </div>
