@@ -7,7 +7,7 @@
 ## How can I edit this code?
 
 There are several ways of editing your application.
-
+shbs
 **Use Lovable**
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/14ca630b-3051-437c-bcf7-fac166175df4) and start prompting.
